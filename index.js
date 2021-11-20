@@ -34,8 +34,11 @@ function Book(title, author, genre, year) {
   this.year = year;
 }
 
-function removeBook() {
+function removeBook(e) {
+  const bookCard = e.target.parentElement;
   console.log('clicked!')
+  console.log(e);
+  bookCard.replaceChildren();
 }
 
 function displayBooks() {
@@ -74,14 +77,15 @@ bookForm.addEventListener('submit', (e)=> {
   let genre = document.getElementById('genre').value;
   let year = document.getElementById('year').value;
 
-  let card = document.createElement('div');
-  card.innerHTML = `<div>${title}</div>
-                    <div>${author}</div>
-                    <div>${genre}</div>
-                    <div>${year}</div>
-                    <button class="remove-book" onClick="removeBook()">Remove</button>`;
-  bookDisplay.appendChild(card);
-  card.classList.add('card');
+  myLibrary.push({
+    title,
+    author,
+    genre,
+    year
+  });
+
+  bookDisplay.replaceChildren();
+  displayBooks();
 
   bookForm.style.visibility = 'hidden';
 });
