@@ -34,6 +34,10 @@ function Book(title, author, genre, year) {
   this.year = year;
 }
 
+function removeBook() {
+  console.log('clicked!')
+}
+
 function displayBooks() {
   myLibrary.map(book => {
     {
@@ -41,11 +45,16 @@ function displayBooks() {
       card.innerHTML = `<div>${book.title}</div>
                         <div>${book.author}</div>
                         <div>${book.genre}</div>
-                        <div>${book.year}</div>`;
+                        <div>${book.year}</div>
+                        <button class="remove-book">Remove</button>`;
       bookDisplay.appendChild(card);
       card.classList.add('card');
     }
-  })
+  });
+  const removeBookBtn = document.querySelectorAll('.remove-book');
+  removeBookBtn.forEach(element => {
+    element.addEventListener('click', removeBook);
+  });
 }
 
 displayBooks();
@@ -69,7 +78,8 @@ bookForm.addEventListener('submit', (e)=> {
   card.innerHTML = `<div>${title}</div>
                     <div>${author}</div>
                     <div>${genre}</div>
-                    <div>${year}</div>`;
+                    <div>${year}</div>
+                    <button class="remove-book" onClick="removeBook()">Remove</button>`;
   bookDisplay.appendChild(card);
   card.classList.add('card');
 
