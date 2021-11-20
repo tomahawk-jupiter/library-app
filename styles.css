@@ -1,0 +1,21 @@
+* {
+  border: solid red 2px;
+}
+
+.book-display {
+  display: flex;
+  flex-wrap: wrap;
+  width: 700px;
+}
+
+.card {
+  width: 200px;
+}
+
+.book-form {
+  background-color: cyan;
+  width: 400px;
+  visibility: hidden;
+  position: absolute;
+
+}
