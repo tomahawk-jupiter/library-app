@@ -86,11 +86,9 @@ function displayBooks() {
     element.addEventListener('click', removeBook);
   });
 
-  // Not sure about this, bookRead is a class function
   const bookReadBtn = document.querySelectorAll('.book-read');
   bookReadBtn.forEach(element => {
     element.addEventListener('click', (e)=>{
-      //console.log(myLibrary.element.name);
       const bookObj = myLibrary[e.target.name];
       console.log(bookObj);
       bookObj.bookRead();
