@@ -1,4 +1,6 @@
-const myLibrary = [
+const myLibrary = [];
+
+const testBooks = [
   {
     title: 'The Hobbit',
     author: 'J. R. R. Tolkien',
@@ -10,17 +12,18 @@ const myLibrary = [
     genre: 'Science Fiction',
     year: '1949'
   }, {
-      title: 'The Hobbit',
+      title: 'The Hobbit 2',
       author: 'J. R. R. Tolkien',
       genre: 'Fantasy',
       year:'1937'
     }, {
-      title: '1984',
+      title: '1984 2',
       author: 'George Orwell',
       genre: 'Science Fiction',
       year: '1949'
     }
 ];
+
 const bookDisplay = document.querySelector('.book-display');
 const bookForm = document.querySelector('.book-form');
 const addBookBtn = document.querySelector('.add-book');
@@ -32,16 +35,35 @@ function Book(title, author, genre, year) {
   this.author = author;
   this.genre = genre;
   this.year = year;
+  this.read = 'Not read';
 }
 
+Book.prototype.bookRead = function () {
+  console.log('book read!');
+  if (this.read == 'Not read') {
+    this.read = 'Read';
+  } else if (this.read == 'Read') {
+    this.read = 'Not read';
+  }
+  bookDisplay.replaceChildren();
+  displayBooks();
+}
+
+// make instances of Book using test array
+testBooks.forEach(book => {
+  let newBook = new Book(book.title, book.author, book.genre, book.year);
+  myLibrary.push(newBook);
+});
+
 function removeBook(e) {
-  const bookCard = e.target.parentElement;
-  console.log('clicked!')
-  console.log(e);
-  bookCard.replaceChildren();
+  let index = e.target.name;
+  myLibrary.splice(index, 1);
+  bookDisplay.replaceChildren();
+  displayBooks();
 }
 
 function displayBooks() {
+  let index = 0;
   myLibrary.map(book => {
     {
       let card = document.createElement('div');
@@ -49,14 +71,29 @@ function displayBooks() {
                         <div>${book.author}</div>
                         <div>${book.genre}</div>
                         <div>${book.year}</div>
-                        <button class="remove-book">Remove</button>`;
+                        <div>${book.read}</div>
+                        <button name=${index} class="remove-book">
+                            Remove</button>
+                        <button name=${index} class="book-read">Toggle</button>`;
       bookDisplay.appendChild(card);
       card.classList.add('card');
+      index++;
     }
   });
   const removeBookBtn = document.querySelectorAll('.remove-book');
   removeBookBtn.forEach(element => {
     element.addEventListener('click', removeBook);
+  });
+
+  // Not sure about this, bookRead is a class function
+  const bookReadBtn = document.querySelectorAll('.book-read');
+  bookReadBtn.forEach(element => {
+    element.addEventListener('click', (e)=>{
+      //console.log(myLibrary.element.name);
+      const bookObj = myLibrary[e.target.name];
+      console.log(bookObj);
+      bookObj.bookRead();
+    });
   });
 }
 
@@ -77,12 +114,8 @@ bookForm.addEventListener('submit', (e)=> {
   let genre = document.getElementById('genre').value;
   let year = document.getElementById('year').value;
 
-  myLibrary.push({
-    title,
-    author,
-    genre,
-    year
-  });
+  const newBook = new Book(title, author, genre, year);
+  myLibrary.push(newBook);
 
   bookDisplay.replaceChildren();
   displayBooks();
