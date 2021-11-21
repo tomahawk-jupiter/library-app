@@ -1,13 +1,17 @@
 ### Library App
 
-A project to practice using JavaScript Class Constructors.
+An app that displays a collection of user entered books.
 
-### Things I looked up:
+### Examples of:
 
-Add a class name to an element:
+Object constructor
 
-    element.className.add('myName');
+Object.prototype.functionName
 
-Removes all child elements when called with no arguments:
+Adding HTML with javascript
 
-    element.replaceChildren();
+Position element relative to click position
+
+### Notes:
+
+formElement.reset();

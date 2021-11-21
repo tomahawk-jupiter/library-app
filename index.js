@@ -12,15 +12,15 @@ const testBooks = [
     genre: 'Science Fiction',
     year: '1949'
   }, {
-      title: 'The Hobbit 2',
-      author: 'J. R. R. Tolkien',
+      title: 'A Game of Thrones',
+      author: 'George R. R. Martin',
       genre: 'Fantasy',
-      year:'1937'
+      year:'1996'
     }, {
-      title: '1984 2',
-      author: 'George Orwell',
-      genre: 'Science Fiction',
-      year: '1949'
+      title: 'The Name of the Wind',
+      author: 'Patrick Rothfuss',
+      genre: 'Fantasy',
+      year: '2007'
     }
 ];
 
@@ -62,6 +62,7 @@ function removeBook(e) {
   displayBooks();
 }
 
+// Makes up the book cards.
 function displayBooks() {
   let index = 0;
   myLibrary.map(book => {
@@ -99,8 +100,10 @@ function displayBooks() {
 
 displayBooks();
 
-addBookBtn.addEventListener('click', ()=> {
+addBookBtn.addEventListener('click', (e)=> {
   bookForm.style.visibility = 'visible';
+  bookForm.style.left = e.clientX + 'px';
+  bookForm.style.top = e.clientY - 300 + 'px';
 });
 
 cancelBtn.addEventListener('click', ()=> {
@@ -121,4 +124,5 @@ bookForm.addEventListener('submit', (e)=> {
   displayBooks();
 
   bookForm.style.visibility = 'hidden';
+  bookForm.reset();
 });

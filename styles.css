@@ -1,21 +1,66 @@
 * {
-  border: solid red 2px;
+  /* border: solid red 2px; */
+  font-family: calibri, sans-serif;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #286695;
+  color: #ebe8e8;
+}
+
+h1 {
+  align-self: flex-start;
+  margin-left: 10px;
+  font-size: 40px;
+  color: #ebe8e8;
 }
 
 .book-display {
   display: flex;
   flex-wrap: wrap;
-  width: 700px;
+  width: 765px;
+  gap: 10px;
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   width: 200px;
+  padding: 20px;
+  border: solid #d5960f;
+  border-radius: 10px;
+  background-color: #172b52;
+}
+
+button {
+  border-radius: 5px;
+  background-color: #3d525a;
+  color: #ffffff;
+}
+
+.add-book {
+  margin-top: 10px;
+  width: 150px;
 }
 
 .book-form {
-  background-color: cyan;
-  width: 400px;
   visibility: hidden;
   position: absolute;
 
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 200px;
+  padding: 20px;
+  border: solid #d5960f;
+  border-radius: 10px;
+  background-color: #172b52;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
 }
