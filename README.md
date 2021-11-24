@@ -14,4 +14,6 @@ Position element relative to click position
 
 ### Notes:
 
-formElement.reset();
+Clear previously entered text from form elements **formElement.reset();**
+
+Get mouse position on click event with **pageX** and **pageY**.
