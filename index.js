@@ -30,23 +30,24 @@ const addBookBtn = document.querySelector('.add-book');
 const cancelBtn = document.querySelector('.cancel-btn');
 const submitForm = document.querySelector('.submit-form');
 
-function Book(title, author, genre, year) {
-  this.title = title;
-  this.author = author;
-  this.genre = genre;
-  this.year = year;
-  this.read = 'Not read';
-}
-
-Book.prototype.bookRead = function () {
-  console.log('book read!');
-  if (this.read == 'Not read') {
-    this.read = 'Read';
-  } else if (this.read == 'Read') {
+class Book {
+  constructor(title, author, genre, year) {
+    this.title = title;
+    this.author = author;
+    this.genre = genre;
+    this.year = year;
     this.read = 'Not read';
   }
-  bookDisplay.replaceChildren();
-  displayBooks();
+  bookRead() {
+    console.log('book read!');
+    if (this.read == 'Not read') {
+      this.read = 'Read';
+    } else if (this.read == 'Read') {
+      this.read = 'Not read';
+    }
+    bookDisplay.replaceChildren();
+    displayBooks();
+  }
 }
 
 // make instances of Book using test array
@@ -99,9 +100,10 @@ function displayBooks() {
 displayBooks();
 
 addBookBtn.addEventListener('click', (e)=> {
+  console.log(e);
   bookForm.style.visibility = 'visible';
-  bookForm.style.left = e.clientX + 'px';
-  bookForm.style.top = e.clientY - 300 + 'px';
+  bookForm.style.left = e.pageX + 'px';
+  bookForm.style.top = e.pageY - 300 + 'px';
 });
 
 cancelBtn.addEventListener('click', ()=> {

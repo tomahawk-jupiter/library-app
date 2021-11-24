@@ -4,9 +4,7 @@ An app that displays a collection of user entered books.
 
 ### Examples of:
 
-Object constructor
-
-Object.prototype.functionName
+Javascript Classes
 
 Adding HTML with javascript
 
@@ -14,4 +12,6 @@ Position element relative to click position
 
 ### Notes:
 
-formElement.reset();
+Remove previously typed text from form inputs **formElement.reset();**
+
+Get position of click event with **pageX** and **pageY**.
