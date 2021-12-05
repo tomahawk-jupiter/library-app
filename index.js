@@ -100,8 +100,6 @@ displayBooks();
 
 addBookBtn.addEventListener('click', (e)=> {
   bookForm.style.visibility = 'visible';
-  bookForm.style.left = e.pageX + 'px';
-  bookForm.style.top = e.pageY - 300 + 'px';
 });
 
 cancelBtn.addEventListener('click', ()=> {
