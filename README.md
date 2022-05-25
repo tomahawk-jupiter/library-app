@@ -2,6 +2,8 @@
 
 An app that displays a collection of user entered books. An Odin Project assignment.
 
+[Live Demo](https://tomahawk-jupiter.github.io/library-app/)
+
 ## Examples of:
 
 - Object constructor [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor)
