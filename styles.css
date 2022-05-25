@@ -1,38 +1,52 @@
-* {
-  /* border: solid red 2px; */
-  font-family: calibri, sans-serif;
-}
 body {
+  font-family: sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #286695;
   color: #ebe8e8;
+  margin: 0;
 }
 
 h1 {
-  align-self: flex-start;
+  text-align: center;
   margin-left: 10px;
   font-size: 40px;
-  color: #ebe8e8;
+  color: #d5960f;
+  text-shadow: 2px 2px 2px black;
 }
 
 .book-display {
-  display: flex;
-  flex-wrap: wrap;
-  width: 765px;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 824px) {
+  .book-display {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 540px) {
+  .book-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .card {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  width: 200px;
   padding: 20px;
   border: solid #d5960f;
   border-radius: 10px;
   background-color: #172b52;
+  box-shadow: 2px 2px 8px 2px #172b52;
+}
+
+.btn-row {
+  margin: 0.5rem auto 0;
 }
 
 button {
@@ -40,25 +54,43 @@ button {
   background-color: #3d525a;
   color: #ffffff;
   cursor: pointer;
+  font-weight: 700;
+  padding: 0.25rem 1rem;
+  box-shadow: 2px 2px 8px 2px black;
 }
 button:hover {
-  background-color: #4e636b;
+  color: #292f29;
+  background-color: #8bb4c4;
 }
 
+.remove-book {
+  margin-right: 0.5rem;
+}
+
+/* Add book button and form */
+
 .add-book {
-  margin: 10px 40%;
-  width: 150px;
+  margin: 2rem;
+  position: fixed;
+  z-index: 2;
+  bottom: 0;
+  right: 0;
+  font-weight: 700;
+  font-size: 2rem;
+  border-radius: 50%;
+}
+.add-book:hover {
+  color: #292f29;
+  background-color: #8bb4c4;
 }
 
 .book-form {
   visibility: hidden;
   position: fixed;
   margin: 0 33%;
-
   display: flex;
   flex-direction: column;
   gap: 8px;
-  width: 200px;
   padding: 20px;
   border: solid #d5960f;
   border-radius: 10px;
@@ -67,8 +99,16 @@ button:hover {
 
 .form-row {
   display: flex;
+  gap: 0.5rem;
   justify-content: space-between;
 }
+
+input {
+  outline: none;
+  padding: 0.25rem;
+}
+
+/* Form validation styles */
 
 input:invalid {
   border: solid red 2px;

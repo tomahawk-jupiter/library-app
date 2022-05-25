@@ -2,13 +2,13 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Library App</title>
+    <title>Book Shelf</title>
     <link rel="stylesheet" href="styles.css">
     <script type="text/javascript" src="index.js" defer></script>
   </head>
   <body>
     <div class="main-container">
-      <h1>Library App</h1>
+      <h1>Book Shelf</h1>
 
       <form class="book-form">
         <div class="form-row">
@@ -27,12 +27,14 @@
           <label for="year">Year</label>
           <input type="number" name="year" id="year" required>
         </div>
-        <button class="submit-form" type="submit">Add</button>
-        <button type="button" class="cancel-btn">Cancel</button>
+        <div class="btn-row">
+          <button class="submit-form" type="submit">ADD</button>
+          <button type="button" class="cancel-btn">CANCEL</button>
+        </div>
       </form>
       <div class="book-display"></div>
       <button class="add-book"
-          type="button" name="button">Add Book</button>
+          type="button" name="button">&plus;</button>
     </div>
   </body>
 </html>
